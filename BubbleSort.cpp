@@ -11,7 +11,7 @@ void swap (int *a, int *b) {
 
 // A function to implement bubble sort
 void bubbleSort(int a[], int n) {
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n-1; i++) {
 		// Variable to check if two elements were swapped by inner loop or not
 		bool checkswap = false;
 		// j < n-i-1 because last element are already in place after each loop
