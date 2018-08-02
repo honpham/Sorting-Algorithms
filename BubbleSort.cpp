@@ -1,4 +1,15 @@
 // Hon Pham: C++ program for implementation of Bubble Sort 
+/*
+1. What it is?
+The simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order
+2. Why do we need this algorithm?
+- It has capability to detect a very small error (like swap of just two elements and fix it with just linear complexity (2n))
+3. How do we implement it and what are special things to know? 
+- Pay attention to situations that we can stop the algorithm. (checkswap)
+- Pay attention to the indexs of loops that we can reduce number of loop( i < n-1, j < n-i-1) 
+4. What are the real problems that can be applied this algorithm to it and How?
+
+*/
 #include <iostream>
 using namespace std;
 
