@@ -5,7 +5,8 @@
 2. Why do we need this algorithm?
 - The good thing about selection sort is it never makes more than O(n) swaps and can be useful when memory write is costly operation
 3. How do we implement it and what are special things to know? 
-- It is very easy to implement but it not stability so if you need stability you have to change something
+- It is very easy to implement but it is not stable so if you need stability then instead of swapping,
+  the minimum element is palced in its position without swapping by pushing every element one step forward (code in comment bellow)
 4. What are the real problems that can be applied this algorithm to it and How?
 - It is useful when the number of elements are small and memory write is a costly operation
 */
@@ -37,6 +38,14 @@ void selectionSort(int a[], int n) {
 		if (h != 0) {
 			swap(&a[i], &a[h]);
 		}
+		// Stable selection sort by pushing every element one step forward instead of swapping
+		/*
+		while (h > i) {
+			a[h] = a[h - 1];
+			h--;
+		}
+		a[i] = min_element;
+		*/
 	}
 }
 
@@ -44,7 +53,7 @@ void selectionSort(int a[], int n) {
 int main() {
 	int a[] = {23, 13, 15, 43, 19};
 	int n = sizeof(a)/sizeof(a[0]);
-	SelectionSort(a, n);
+	selectionSort(a, n);
 	// Print an array
 	for (int k = 0; k < n; k++)
 		cout << a[k] << endl;
