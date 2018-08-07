@@ -1,14 +1,13 @@
 // Hon Pham: C++ program for implementation of Selection Sort 
 /*
 1. What it is?
-The simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in wrong order
+- The selection sort algorithm sorts an array by repeatedly finding the minimum/maximum element from unsorted part and putting it at the beginning.
 2. Why do we need this algorithm?
-- It has capability to detect a very small error (like swap of just two elements and fix it with just linear complexity (2n))
+- The good thing about selection sort is it never makes more than O(n) swaps and can be useful when memory write is costly operation
 3. How do we implement it and what are special things to know? 
-- Pay attention to situations that we can stop the algorithm. (checkswap)
-- Pay attention to the indexs of loops that we can reduce number of loop( i < n-1, j < n-i-1) 
+- It is very easy to implement but it not stability so if you need stability you have to change something
 4. What are the real problems that can be applied this algorithm to it and How?
-
+- It is useful when the number of elements are small and memory write is a costly operation
 */
 #include <iostream>
 using namespace std;
