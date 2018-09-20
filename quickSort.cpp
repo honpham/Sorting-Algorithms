@@ -1,30 +1,41 @@
+// C++ implementation Quick Sort
+
 #include <iostream>
 using namespace std;
 
+// A utility function to swap two elements
 void swap(int* a, int* b) {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-void quickSort(int arr[], int l, int r) {
-	int i = l;
-	int j = r;
-	while (i <= j) {
-		for (; i < r; i++) {
-			if (arr[i] > arr[r]) break;
-		}
-		for (; j > l; j--) {
-			if (arr[j] < arr[r]) break;
-		}
-		if (i < j) {
-			swap(&arr[i], &arr[j]);
+// This function takes last element as pivot, places the pivot element at its correct position in sorted array
+// and places all smaller (smaller than pivot) to left of pivot and all greater elements to right of pivot
+
+int partition(int arr[], int low, int high) {
+	int pivot = arr[high]; // pivot element
+	int i = low - 1; // Index of smaller element than pivot
+	for (int j = low; j < high-1; j++) {
+		if (arr[j] <= arr[pivot]) {
+			i++; // Increment index of smaller element
+			swap(arr[i], arr[j]);
 		}
 	}
-	if (i > j & i < r) {
-		swap(&arr[i], &arr[r];
-		quickSort(arr, l, i - 1);
-		quickSort(arr, i + 1, r);
+	swap (arr[i+1], arr[pivot]);
+	return (i+1);
+}
+// The main function that implements quick sort
+// arr[] --> Array to be sorted
+// low --> Starting index
+// high --> Ending index
+void quickSort(int arr[], int l, int r) {
+	if (low < high) {
+		// pi is partitioning index, arr[pi] is now at right place
+		int pi = partition(arr, low, high);
+		// Separately sort elements before partition and after partition
+		quickSort(arr, low, pi-1);
+		quickSort(arr, pi+1, high);
 	}
 }
 
