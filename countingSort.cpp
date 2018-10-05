@@ -19,6 +19,7 @@ void countingSort(char arr[]) {
 		count_arr[i] = 0;
 	/*
 	memset(count_arr, 0, sizeof(count_arr));
+	int count_arr[K+1] = {0};
 	*/
 	// Store count of each character
 	for (int i = 0; i < strlen(arr); i++)
@@ -30,9 +31,11 @@ void countingSort(char arr[]) {
 		count_arr[i] = count_arr[i-1] + count_arr[i];
 
 	// Build the auxiliary character array
+	// If want counting sort stable then reverse the value ò x
+	// int i = n - 1; i >= 0; i--
 	for (int i = 0; i < strlen(arr); i++) {
 		aux[count_arr[arr[i]] - 1] = arr[i];
-		count_arr[arr[i]] = count_arr[arr[i]] = 1;
+		count_arr[arr[i]] = count_arr[arr[i]] - 1;
 	}
 	// Copy the auxiliary array to arr, so that arr now contains sorted characters
 	for (int i = 0; i < strlen(arr); i++)
@@ -41,7 +44,7 @@ void countingSort(char arr[]) {
 
 // Driver program to test above function
 int main() {
-	char arr[] = "Hon Dep Trai";
+	char arr[] = "ifhafiajeeifhwafenfsdvnuvb";
 	countingSort(arr);
 	cout << arr << endl;
 	return 0;
